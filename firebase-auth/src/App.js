@@ -4,13 +4,15 @@ import Login from "./components/Login";
 import { BrowserRouter, Link, Route, Switch } from "react-router-dom";
 import Dashboard from "./components/Dashboard";
 import UpdateProfile from "./components/UpdateProfile";
+import PrivateRoute from './PrivateRoute';
 function App() {
   return (
     <BrowserRouter>
+      <PrivateRoute path="/" exact component={Dashboard} />
       <Route path="/" exact component={Dashboard} />
       <Route path="/login" exact component={Login} />
       <Route path="/signup" exact component={SignUp} />
-      <Route path="/profile" exact component={UpdateProfile} />
+      <PrivateRoute path="/profile" exact component={UpdateProfile} />
     </BrowserRouter>
   );
 }
